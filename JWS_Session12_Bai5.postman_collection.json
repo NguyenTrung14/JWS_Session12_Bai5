@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "JWS Session12 Bai5 - Student API",
+    "name": "JWS Session12 Bai5 - Product API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -11,14 +11,14 @@
   ],
   "item": [
     {
-      "name": "Get all students",
+      "name": "Get all products",
       "request": {
         "method": "GET",
-        "url": "{{baseUrl}}/api/students"
+        "url": "{{baseUrl}}/api/products"
       }
     },
     {
-      "name": "Create student",
+      "name": "Create product",
       "request": {
         "method": "POST",
         "header": [
@@ -29,20 +29,20 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"studentCode\": \"SV001\",\n  \"fullName\": \"Nguyen Van A\",\n  \"major\": \"Information Technology\",\n  \"gpa\": 3.4\n}"
+          "raw": "{\n  \"productCode\": \"P001\",\n  \"productName\": \"Laptop Dell XPS 13\",\n  \"description\": \"Ultrabook for office and study\",\n  \"price\": 32990000,\n  \"quantity\": 10\n}"
         },
-        "url": "{{baseUrl}}/api/students"
+        "url": "{{baseUrl}}/api/products"
       }
     },
     {
-      "name": "Get student by id",
+      "name": "Get product by id",
       "request": {
         "method": "GET",
-        "url": "{{baseUrl}}/api/students/1"
+        "url": "{{baseUrl}}/api/products/1"
       }
     },
     {
-      "name": "Update student",
+      "name": "Update product",
       "request": {
         "method": "PUT",
         "header": [
@@ -53,23 +53,47 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"studentCode\": \"SV001\",\n  \"fullName\": \"Nguyen Van A Updated\",\n  \"major\": \"Software Engineering\",\n  \"gpa\": 3.8\n}"
+          "raw": "{\n  \"productCode\": \"P001\",\n  \"productName\": \"Laptop Dell XPS 13 Plus\",\n  \"description\": \"Updated ultrabook model\",\n  \"price\": 35990000,\n  \"quantity\": 7\n}"
         },
-        "url": "{{baseUrl}}/api/students/1"
+        "url": "{{baseUrl}}/api/products/1"
       }
     },
     {
-      "name": "Delete student",
+      "name": "Delete product",
       "request": {
         "method": "DELETE",
-        "url": "{{baseUrl}}/api/students/1"
+        "url": "{{baseUrl}}/api/products/1"
       }
     },
     {
-      "name": "Get missing student - 404",
+      "name": "Get missing product - 404",
       "request": {
         "method": "GET",
-        "url": "{{baseUrl}}/api/students/999"
+        "url": "{{baseUrl}}/api/products/999"
+      }
+    },
+    {
+      "name": "Update missing product - 404",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productCode\": \"P999\",\n  \"productName\": \"Missing Product\",\n  \"description\": \"Not found update case\",\n  \"price\": 100000,\n  \"quantity\": 1\n}"
+        },
+        "url": "{{baseUrl}}/api/products/999"
+      }
+    },
+    {
+      "name": "Delete missing product - 404",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/products/999"
       }
     }
   ]
